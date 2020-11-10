@@ -30,7 +30,12 @@
             </div>
         </div>
     </div>
+    <input id="btn" value="random location" type="button" />
     <div id="map"></div>
+    <!-- Replace the value of the key parameter with your own API key. -->
+    <script th:src="@{${'https://maps.googleapis.com/maps/api/js?key' + 
+    @environment.getProperty('api_key') + '&callback=initMap'}}"
+        async defer></script>
     <script th:inline="javascript">
         /*<![CDATA[*/
 

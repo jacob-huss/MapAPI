@@ -26,4 +26,24 @@ function initMap() {
     google.maps.event.addListener(marker, 'click', function () {
         infowindow.open(map, marker);
     });
+    
 }
+    
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: coords,
+            zoom: 8
+        });
+        google.maps.event.addDomListener(document.getElementById('btn'), 'click', function () {
+            randomBetween();
+        })
+    }
+
+    function randomBetween() {
+        var random = new google.maps.LatLng((Math.random() * (85 * 2) - 85), (Math.random() * (180 * 2) - 180));
+        var marker = new google.maps.Marker({
+            map: map,
+            position: random
+        });
+        map.setCenter(marker.getPosition());
+    }
